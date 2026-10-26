@@ -6,7 +6,7 @@ Fine-tuned DistilBERT to classify short texts into 6 emotions (sadness, joy, lov
 
 
 ## Data
-`dair-ai/emotion`: 16000 train / 2000 validation / 2000 test. The classes are imbalanced ![EDA](results/eda.png), so I report **macro-F1**, which weights every class equally, alongside accuracy.
+`dair-ai/emotion`: 16000 train / 2000 validation / 2000 test. The classes are imbalanced. ![EDA](results/eda.png) I reported **macro-F1**, which weights every class equally, alongside accuracy.
 
 ## Approach
 1. **Baseline:** TF-IDF (unigrams and bigrams) + Logistic Regression, with `C = 100` selected on the validation set.
@@ -14,9 +14,11 @@ Fine-tuned DistilBERT to classify short texts into 6 emotions (sadness, joy, lov
 3. The test set was used once, for the final comparison.
 
 ## Results (test set)
+
 | Model                        | Accuracy | Macro-F1 |
-| TF-IDF + Logistic Regression | 0.873    | 0.810 |
-| DistilBERT (fine-tuned)      | 0.926    | 0.882 |
+|------------------------------|:--------:|:--------:|
+| TF-IDF + Logistic Regression | 0.873    | 0.810    |
+| DistilBERT (fine-tuned)      | 0.926    | 0.882    |
 
 ![Confusion matrices](results/confusion_matrices_test.png)
 ![Per-class F1](results/per_class_f1.png)
